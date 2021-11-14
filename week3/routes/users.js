@@ -1,16 +1,9 @@
-import express from "express";
-import sql from "../database/sql";
+var express = require('express');
+var router = express.Router();
 
-const router = express.Router();
-
-router.get('/', async function(req, res, next) {
-  const users = await sql.getUsers()
-  
-  // 데이터베이스에서 사용자 목록 가져오와서 users.hbs에가 값을 넘겨줌
-  res.render('users', { 
-    title: '사용자 목록',
-    users
-  });
+/* GET users listing. */
+router.get('/', function(req, res, next) {
+  res.send('respond with a resource');
 });
 
 module.exports = router;
